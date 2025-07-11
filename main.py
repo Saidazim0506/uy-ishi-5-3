@@ -45,18 +45,17 @@ def get_users_by_address(address: str) -> list[dict]:
 
 @app.post("/users/create/")
 def create_user(name: Annotated[int, Path(min=2, max=20)], email: Annotated[str, Field()], address: Annotated[str, Field()]):
-    new_user = {
+    users.append = {
         "id": len(users) + 1,
         "name": name,
         "email": email,
         "address": address
     }
-    users.append(new_user)
-    return {"message": "Yangi user qo'shildi", "user": new_user}
+
+    return {"message": "Yangi user qo'shildi", "user":}
 
 
 if __name__ == "__main__":
     uvicorn.run(app, port=8000)
-
 
 
